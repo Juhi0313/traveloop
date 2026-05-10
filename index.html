@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traveloop — Personalized Travel Planning</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      window.addEventListener('error', function(e) {
+        document.getElementById('root').innerHTML =
+          '<div style="padding:40px;font-family:monospace;background:#fff1f2;min-height:100vh">' +
+          '<h1 style="color:#dc2626;font-size:22px;margin-bottom:12px">JS Error (pre-React):</h1>' +
+          '<pre style="white-space:pre-wrap;word-break:break-all;background:#fff;border:1px solid #fca5a5;border-radius:8px;padding:16px">' +
+          (e.message || '') + '\n' + (e.filename || '') + ':' + e.lineno + '\n' + (e.error && e.error.stack ? e.error.stack : '') +
+          '</pre></div>';
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        document.getElementById('root').innerHTML =
+          '<div style="padding:40px;font-family:monospace;background:#fff1f2;min-height:100vh">' +
+          '<h1 style="color:#dc2626;font-size:22px;margin-bottom:12px">Unhandled Promise Rejection:</h1>' +
+          '<pre style="white-space:pre-wrap;word-break:break-all;background:#fff;border:1px solid #fca5a5;border-radius:8px;padding:16px">' +
+          (e.reason) + '</pre></div>';
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
